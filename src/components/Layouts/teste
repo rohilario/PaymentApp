@@ -1,0 +1,99 @@
+<template>
+  <v-navigation-drawer app dense fixed>
+        <v-list>
+          <v-list-item class="px-2">
+            <v-list-item-avatar>
+                <v-img src="img/perfil/RODOLFE128.png"></v-img>
+            </v-list-item-avatar>
+          </v-list-item>
+          <v-list-item link>
+            <v-list-item-content>
+              <v-list-item-title class="title">{{currentUser.name}}</v-list-item-title>
+                <v-list-item-subtitle>{{currentUser.username}}</v-list-item-subtitle>
+                </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      <v-divider></v-divider>
+      <v-list>
+        <v-list-item-title>MENU</v-list-item-title>
+          <v-list-item-group v-model="item">
+            <v-list-item
+              v-for="item in items"
+              :key="item.id"
+              link
+              :to="item.link"
+              >
+                <v-list-item-icon>
+                  <v-icon>      {{item.icon}}      </v-icon>
+                </v-list-item-icon>
+                <v-list-item-content color="white">
+                  <v-list-item-title >{{ item.title }}</v-list-item-title>
+                  </v-list-item-content>
+            </v-list-item>
+            <v-divider></v-divider>
+          </v-list-item-group>
+        </v-list>
+        <v-list shaped>
+          <v-list-item-group color="black">
+            <v-list-item href @click.prevent="logOut">
+              <v-list-item-icon>
+                <v-icon>{{'mdi-exit-to-app'}}</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content color="white">
+                <v-list-item-title >SAIR</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-divider></v-divider>
+          </v-list-item-group>
+        </v-list>
+  </v-navigation-drawer>
+</template>
+<script>
+    export default {
+
+        data: () => ({
+            drawer: null,
+            item: "",
+            items: [{
+                title: 'Perfil',
+                icon: 'mdi-account-box',
+                link: '/profile'
+            }, {
+                title: 'Imoveis',
+                icon: 'mdi-home-modern',
+                link: '/imoveis'
+            }, {
+                title: 'Locatários',
+                icon: 'mdi-account-switch',
+                link: '/locatarios'
+            }, {
+                title: 'Contratos',
+                icon: 'mdi-file-document',
+                link: '/contratos'
+            }, {
+                title: 'Contratos/Empresa',
+                icon: 'mdi-file-document',
+                link: '/ContratosEmpresa'
+            }, {
+                title: 'Lancamentos',
+                icon: 'mdi-plus-circle-outline',
+                link: '/lancamentos'
+            }, {
+                title: 'Lancamentos/Contrato',
+                icon: 'mdi-database-plus',
+                link: '/lancamentos_empresa'
+            }, {
+                title: 'Usuarios',
+                icon: 'mdi-account',
+                link: 'usuarios'
+            }, ],
+        }),
+        computed: {
+
+        },
+
+        methods: {
+
+        }
+    }
+</script>
