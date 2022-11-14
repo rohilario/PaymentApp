@@ -1,4 +1,4 @@
-# rca
+# PaymentApp
 
 ## Project setup
 ```
